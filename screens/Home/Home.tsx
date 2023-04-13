@@ -8,7 +8,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 export type RootStackParamList = {
   Home: undefined;
   Category: {
-    name: 'food' | 'party' | 'present' | 'Licor';
+    name: 'food' | 'party' | 'present' | 'Licores';
   };
 };
 
@@ -73,7 +73,7 @@ const Home = () => {
             <TouchableWithoutFeedback
               onPress={() => {
                 navigation.navigate('Category', {
-                  name: 'Licor',
+                  name: 'Licores',
                 });
               }}>
               <ImageGrid source={require('../../assets/wine.jpg')} />

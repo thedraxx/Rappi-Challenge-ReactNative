@@ -1,15 +1,55 @@
-import React from 'react';
-import {View, Text} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {useRoute} from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
+import {useRoute, useNavigation} from '@react-navigation/native';
+import {Category, categories} from '../../components/database/categories';
+import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
+import {Container, HeaderFlatList, Title} from './style';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RouteProp} from '@react-navigation/native';
+
+type ParamList = {
+  Detail: {
+    name: string;
+  };
+};
+
+export type RootStackParamList = {
+  Detail: {
+    Detail: Category[];
+  };
+};
 
 const Home = () => {
-  const {params} = useRoute();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const {params} = useRoute<RouteProp<ParamList, 'Detail'>>();
+
+  const [getCategories, setgetCategories] = useState<Category[]>();
+
+  useEffect(() => {
+    categories.categories.map(item => {
+      if (item.name === params.name) {
+        setgetCategories(item.subcategories);
+      }
+    });
+  }, [params]);
 
   return (
-    <View>
-      <Text>Producto</Text>
-    </View>
+    <Container>
+      <FlatList
+        data={getCategories}
+        renderItem={({item}) => (
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Detail', {
+                Detail: item.subcategories,
+              });
+            }}>
+            <Title>{item.name}</Title>
+          </TouchableOpacity>
+        )}
+        keyExtractor={item => item.name}
+        ListFooterComponent={<HeaderFlatList />}
+      />
+    </Container>
   );
 };
 
