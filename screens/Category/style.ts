@@ -25,3 +25,12 @@ export const HeaderFlatList = styled.View`
   width: 100%;
   position: relative;
 `;
+
+export const Button = styled.TouchableOpacity`
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+`;

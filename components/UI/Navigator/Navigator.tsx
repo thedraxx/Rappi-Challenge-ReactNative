@@ -14,7 +14,7 @@ export type RootStackParamList = {
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-const Navbar = () => {
+const Navigator = () => {
   return (
     <>
       <Stack.Navigator
@@ -29,7 +29,13 @@ const Navbar = () => {
           },
           headerTitleAlign: 'center',
         }}>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false, // Oculta el encabezado para esta pantalla
+          }}
+        />
         <Stack.Screen name="Category" component={Category} />
         <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
@@ -37,4 +43,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navigator;

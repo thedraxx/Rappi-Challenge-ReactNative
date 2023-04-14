@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {View} from 'react-native';
+import {Text, View} from 'react-native';
 import {useRoute, RouteProp} from '@react-navigation/native';
 import {Category} from '../../components/database/categories';
 import {products} from '../../components/database/products';
+import {ContainerDetail} from './style';
 
 type ParamList = {
   Detail: Category[];
@@ -31,16 +32,29 @@ const Detail = () => {
   }, [Detail]);
 
   const getDetailsProduct = () => {
-    Detail.map(item => {
-      products.map(product => {
-        if (product.subcategory_id === item.id) {
-          setProductsDetails([...ProductsDetails, product]);
-        }
-      });
-    });
+    const newProductsDetails = Detail.reduce(
+      (acc: RootStackParamList[], item: any) => {
+        const foundProducts = products.filter(
+          product => product.subcategory_id === item.id,
+        );
+        return [...acc, ...foundProducts];
+      },
+      [],
+    );
+    setProductsDetails(newProductsDetails);
   };
 
-  return <View>{}</View>;
+  return (
+    <ContainerDetail>
+      {ProductsDetails.map((item, index) => {
+        return (
+          <View key={index}>
+            <Text>{item.description}</Text>
+          </View>
+        );
+      })}
+    </ContainerDetail>
+  );
 };
 
 export default Detail;

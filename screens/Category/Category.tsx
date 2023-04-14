@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useRoute, useNavigation} from '@react-navigation/native';
 import {Category, categories} from '../../components/database/categories';
-import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
-import {Container, HeaderFlatList, Title} from './style';
+import {FlatList} from 'react-native-gesture-handler';
+import {Button, Container, HeaderFlatList, Title} from './style';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RouteProp} from '@react-navigation/native';
 
@@ -37,14 +37,14 @@ const Home = () => {
       <FlatList
         data={getCategories}
         renderItem={({item}) => (
-          <TouchableOpacity
+          <Button
             onPress={() => {
               navigation.navigate('Detail', {
                 Detail: item.subcategories,
               });
             }}>
             <Title>{item.name}</Title>
-          </TouchableOpacity>
+          </Button>
         )}
         keyExtractor={item => item.name}
         ListFooterComponent={<HeaderFlatList />}
