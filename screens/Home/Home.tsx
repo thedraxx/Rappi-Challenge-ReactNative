@@ -9,12 +9,20 @@ import {
   TextMore,
   ContainerBanner,
   ImageBanner,
+  ContainerLocation,
+  TextLocation,
+  ContainerRestaurants,
+  ScrollViewCustom,
 } from './styles';
 import {Container, TitleText, ContainerText, GridContainer} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableWithoutFeedback, FlatList} from 'react-native-gesture-handler';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {Text} from 'react-native';
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import Icon2 from 'react-native-vector-icons/dist/Ionicons';
+import {View} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import Restaurants from '../../components/UI/Restaurants/Restaurants';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -34,16 +42,30 @@ const Home = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   return (
-    <>
+    <ScrollViewCustom>
+      <ContainerLocation>
+        <Icon2 name="location" size={25} color="#ff6666" />
+        <TextLocation>Calle 1234</TextLocation>
+      </ContainerLocation>
+
       <ContainerInput>
-        <Input placeholder="Buscar en Rappi..." keyboardType="numeric" />
-        <Text>xd</Text>
+        <Input placeholder="Buscar en Rappi..." />
+        <LinearGradient
+          colors={['#ff9999', '#ff6666']}
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 1}}
+          style={{borderRadius: 17, padding: 15}}>
+          <Icon name="search" size={20} color="#ffffff" />
+        </LinearGradient>
+        <View style={{padding: 10, left: 30, position: 'relative'}}>
+          <Icon name="bell" size={22} color="orange" />
+        </View>
       </ContainerInput>
 
       <Container>
         <ContainerText>
           <TitleText>Secciones</TitleText>
-          <TextMore>Ver mas</TextMore>
+          <TextMore>Ver Todos</TextMore>
         </ContainerText>
 
         <GridContainer>
@@ -55,7 +77,21 @@ const Home = () => {
                     name: 'food',
                   });
                 }}>
-                <ImageGrid source={require('../../assets/burger.png')} />
+                <ImageGrid source={require('../../assets/dog.jpg')} />
+              </TouchableWithoutFeedback>
+            </GridItem>
+            <FoodText>Mascota</FoodText>
+          </ContainerFoodText>
+
+          <ContainerFoodText>
+            <GridItem>
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  navigation.navigate('Category', {
+                    name: 'food',
+                  });
+                }}>
+                <ImageGrid source={require('../../assets/burger.jpg')} />
               </TouchableWithoutFeedback>
             </GridItem>
             <FoodText>Comida</FoodText>
@@ -69,7 +105,7 @@ const Home = () => {
                     name: 'party',
                   });
                 }}>
-                <ImageGrid source={require('../../assets/hat.jpg')} />
+                <ImageGrid source={require('../../assets/party.jpg')} />
               </TouchableWithoutFeedback>
             </GridItem>
             <FoodText>Fiesta</FoodText>
@@ -85,7 +121,7 @@ const Home = () => {
                     name: 'present',
                   });
                 }}>
-                <ImageGrid source={require('../../assets/present.jpg')} />
+                <ImageGrid source={require('../../assets/presentGif.jpg')} />
               </TouchableWithoutFeedback>
             </GridItem>
             <FoodText>Regalo</FoodText>
@@ -96,13 +132,27 @@ const Home = () => {
               <TouchableWithoutFeedback
                 onPress={() => {
                   navigation.navigate('Category', {
+                    name: 'present',
+                  });
+                }}>
+                <ImageGrid source={require('../../assets/soporte.png')} />
+              </TouchableWithoutFeedback>
+            </GridItem>
+            <FoodText>Soporte</FoodText>
+          </ContainerFoodText>
+
+          <ContainerFoodText>
+            <GridItem>
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  navigation.navigate('Category', {
                     name: 'Licores',
                   });
                 }}>
-                <ImageGrid source={require('../../assets/wine.jpg')} />
+                <ImageGrid source={require('../../assets/drink.png')} />
               </TouchableWithoutFeedback>
             </GridItem>
-            <FoodText>Licor</FoodText>
+            <FoodText>Alcohol</FoodText>
           </ContainerFoodText>
         </GridContainer>
       </Container>
@@ -116,7 +166,11 @@ const Home = () => {
           showsHorizontalScrollIndicator={false}
         />
       </ContainerBanner>
-    </>
+
+      <ContainerRestaurants>
+        <Restaurants />
+      </ContainerRestaurants>
+    </ScrollViewCustom>
   );
 };
 
