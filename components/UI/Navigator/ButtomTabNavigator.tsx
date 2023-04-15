@@ -11,11 +11,7 @@ const Tab = createBottomTabNavigator();
 
 const ButtomTabNavigator = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: '#ffffff',
-      }}>
+    <>
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
@@ -73,7 +69,7 @@ const ButtomTabNavigator = () => {
           }}
         />
       </Tab.Navigator>
-    </View>
+    </>
   );
 };
 

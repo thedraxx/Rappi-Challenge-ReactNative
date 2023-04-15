@@ -4,7 +4,6 @@ export const ScrollViewCustom = styled.ScrollView`
   background-color: #ffffff;
   width: 100%;
   height: 100%;
-  margin-top: 50px;
   flex: 1;
 `;
 
@@ -17,6 +16,7 @@ export const ContainerLocation = styled.View`
   justify-content: flex-start;
   width: auto;
   padding-left: 10px;
+  padding-top: 20px;
 `;
 
 export const TextLocation = styled.Text`
