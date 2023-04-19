@@ -6,6 +6,7 @@ const {
   usuariosPost,
   usuariosDelete,
   usuariosPatch,
+  productosSeed,
 } = require('../controllers/usuarios');
 
 const router = Router();
@@ -19,5 +20,7 @@ router.post('/', usuariosPost);
 router.delete('/', usuariosDelete);
 
 router.patch('/', usuariosPatch);
+
+router.post('/seed', productosSeed);
 
 module.exports = router;
