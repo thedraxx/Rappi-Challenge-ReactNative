@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import {ContainerInput, Input} from './Style';
+import {Colors} from '../../../utilities/colors';
 
 interface Props {
   header: string;
@@ -12,7 +13,7 @@ const InputHeader = ({header}: Props) => {
     <ContainerInput>
       <Input placeholder={`${header}`} />
       <LinearGradient
-        colors={['#ff9999', '#ff6666']}
+        colors={[`${Colors.darkOrangeRed}`, `${Colors.orangeRed}`]}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 1}}
         style={{borderRadius: 15, padding: 12}}>

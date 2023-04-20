@@ -68,20 +68,6 @@ const Detail = () => {
         )}
         keyExtractor={item => item.id.toString()}
       />
-
-      {/* {ProductsDetails.map((item, index) => {
-        return (
-          <ContainerProduct key={index}>
-            <ImageProduct source={{uri: item.img}} />
-            <ContainerInfo>
-              <TitleProduct>{item.name}</TitleProduct>
-              <DescriptionProduct>
-                StockDisponible: {item.stock}
-              </DescriptionProduct>
-            </ContainerInfo>
-          </ContainerProduct>
-        );
-      })} */}
     </>
   );
 };

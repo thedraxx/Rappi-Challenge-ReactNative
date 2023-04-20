@@ -91,7 +91,6 @@ export const ImageGrid = styled.Image`
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  background-color: #ffffff;
 `;
 
 export const FoodText = styled.Text`

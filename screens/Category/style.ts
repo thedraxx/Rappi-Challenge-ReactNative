@@ -26,7 +26,6 @@ export const ContainerBanner = styled.View`
   margin-bottom: 20px;
   justify-content: center;
   align-items: center;
-
   margin: 10px;
 `;
 
@@ -75,7 +74,7 @@ export const ContainerProductoIndividual = styled.View`
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid ${Colors.gray};
   width: 100%;
 `;
 

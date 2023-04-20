@@ -19,6 +19,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon2 from 'react-native-vector-icons/dist/Ionicons';
 import Restaurants from '../../components/UI/Restaurants/Restaurants';
 import InputNavbar from '../../components/UI/Input/Input';
+import {Colors} from '../../utilities/colors';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -38,7 +39,7 @@ const Home = () => {
   return (
     <ScrollViewCustom>
       <ContainerLocation>
-        <Icon2 name="location" size={25} color="#ff6666" />
+        <Icon2 name="location" size={25} color={Colors.orangeRed} />
         <TextLocation>Calle 1234</TextLocation>
       </ContainerLocation>
 
