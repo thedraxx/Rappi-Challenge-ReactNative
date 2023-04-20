@@ -7,6 +7,7 @@ export const products = [
     price: 500.0,
     available: true,
     stock: 10,
+    img: 'https://www.espaciovino.com.ar/media/default/0001/64/thumb_63479_default_medium.jpeg',
   },
   {
     id: 2,
@@ -16,5 +17,6 @@ export const products = [
     price: 400.0,
     available: true,
     stock: 8,
+    img: 'https://wines4fun.com/1137-superlarge_default/antu-mapu-sauvignon-blanc-maule-valley-chile.jpg',
   },
 ];

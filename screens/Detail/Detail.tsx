@@ -1,9 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
 import {useRoute, RouteProp} from '@react-navigation/native';
 import {Category} from '../../components/database/categories';
 import {products} from '../../components/database/products';
-import {ContainerDetail} from './style';
+import {
+  ContainerInfo,
+  ContainerProduct,
+  DescriptionProduct,
+  ImageProduct,
+  TitleProduct,
+} from './style';
+import {FlatList} from 'react-native';
 
 type ParamList = {
   Detail: Category[];
@@ -17,6 +23,7 @@ type RootStackParamList = {
   price: number;
   available: boolean;
   stock: number;
+  img: string;
 };
 
 const Detail = () => {
@@ -45,15 +52,37 @@ const Detail = () => {
   };
 
   return (
-    <ContainerDetail>
-      {ProductsDetails.map((item, index) => {
+    <>
+      <FlatList
+        data={ProductsDetails}
+        renderItem={({item}) => (
+          <ContainerProduct>
+            <ImageProduct source={{uri: item.img}} />
+            <ContainerInfo>
+              <TitleProduct>{item.name}</TitleProduct>
+              <DescriptionProduct>
+                StockDisponible: {item.stock}
+              </DescriptionProduct>
+            </ContainerInfo>
+          </ContainerProduct>
+        )}
+        keyExtractor={item => item.id.toString()}
+      />
+
+      {/* {ProductsDetails.map((item, index) => {
         return (
-          <View key={index}>
-            <Text>{item.description}</Text>
-          </View>
+          <ContainerProduct key={index}>
+            <ImageProduct source={{uri: item.img}} />
+            <ContainerInfo>
+              <TitleProduct>{item.name}</TitleProduct>
+              <DescriptionProduct>
+                StockDisponible: {item.stock}
+              </DescriptionProduct>
+            </ContainerInfo>
+          </ContainerProduct>
         );
-      })}
-    </ContainerDetail>
+      })} */}
+    </>
   );
 };
 

@@ -1,11 +1,13 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Container, TextTest} from './style';
 
 const Hello = () => {
   return (
-    <View>
-      <Text>Hello</Text>
-    </View>
+    <Container>
+      <TextTest>
+        Hola! Soy un componente de prueba, si ves esto, todo funciona bien!
+      </TextTest>
+    </Container>
   );
 };
 

@@ -2,7 +2,6 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Hello from '../../../screens/Hello/Hello';
 import Navigator from './Navigator';
-import {View} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import Icon2 from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import Icon3 from 'react-native-vector-icons/dist/MaterialIcons';
