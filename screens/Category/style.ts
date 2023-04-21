@@ -68,9 +68,8 @@ export const TitleNoProduct = styled.Text`
 `;
 
 export const ContainerProductoIndividual = styled.View`
-  padding: 15px;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 55px;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
@@ -110,6 +109,7 @@ export const ContainerTitleAndInfo = styled.View`
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
+  width: 60%;
 `;
 
 export const SubTitleProduct = styled.Text`

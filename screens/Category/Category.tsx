@@ -20,7 +20,7 @@ import {
   TitleProduct,
   TitlePromAndMore,
 } from './style';
-import {FlatList} from 'react-native-gesture-handler';
+import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import {GetDataContext} from '../../context';
 import {ActivityIndicator} from 'react-native';
 import {Colors} from '../../utilities/colors';
