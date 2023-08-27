@@ -1,4 +1,4 @@
-# React-Native RAppi - Challenge - Full Stack - IMPORTANT!!! - READ ME
+# React-Native Rappi - Challenge - Full Stack - IMPORTANT!!! - READ ME
 
 ### First of all, you need to conect your cluster to the .env file, THIS FILE ITS INSIDE OF BACKEND FOLDER.
 ```
